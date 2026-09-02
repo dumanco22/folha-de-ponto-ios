@@ -72,9 +72,9 @@ ou até 2× por semana se quiser evitar o app "sumir" do celular).
    ```
    git init
    git add .
-   git commit -m "Primeira versão do app"
+   git commit -m "Primeira versão"
    git branch -M main
-   git remote add origin https://github.com/SEU-USUARIO/folha-de-ponto-ios.git
+   git remote add origin https://github.com/dumanco22/folha-de-ponto-ios.git
    git push -u origin main
    ```
    (troque `SEU-USUARIO` e o nome do repositório pelos que você escolheu — o GitHub
