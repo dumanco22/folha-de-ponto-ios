@@ -39,12 +39,14 @@ jobs:
       - name: Empacotar o .ipa (não assinado)
         run: |
           set -e
-          APP_PATH="build/Build/Products/Release-iphoneos/FolhaDePonto.app"
-          if [ ! -d "$APP_PATH" ]; then
-            echo "ERRO: não encontrei o .app compilado em $APP_PATH"
+          PRODUTOS_DIR="build/Build/Products/Release-iphoneos"
+          APP_PATH=$(find "$PRODUTOS_DIR" -maxdepth 1 -iname "*.app" | head -n 1)
+          if [ -z "$APP_PATH" ] || [ ! -d "$APP_PATH" ]; then
+            echo "ERRO: não encontrei nenhum .app compilado em $PRODUTOS_DIR"
             find build -maxdepth 5 -iname "*.app"
             exit 1
           fi
+          echo "Encontrado: $APP_PATH"
           mkdir -p ipa/Payload
           cp -r "$APP_PATH" ipa/Payload/
           cd ipa
