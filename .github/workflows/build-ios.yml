@@ -12,10 +12,10 @@ jobs:
       - name: Baixar o código
         uses: actions/checkout@v4
 
-      - name: Selecionar o Xcode 15.4
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: "15.4"
+      - name: Selecionar o Xcode 16.0
+          uses: maxim-lobanov/setup-xcode@v1
+          with:
+            xcode-version: "16.0"
 
       - name: Instalar o XcodeGen
         run: brew install xcodegen
